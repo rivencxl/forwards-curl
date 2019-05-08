@@ -62,9 +62,9 @@ else
 			forwards ${params[i]}
 			params[i]=$FORWARDS_URL
 		elif [[ ${params[i]} == *\ * ]]; then
-        	params[i]="'${params[i]}'"
-        elif [[ ${params[i]} =~ ^-X(POST|PUT)$ ]]; then
-        	post_or_put=${params[i]}
+        		params[i]="'${params[i]}'"
+        	elif [[ ${params[i]} =~ ^-X(POST|PUT)$ ]]; then
+        		post_or_put=${params[i]}
 		fi
 	}
 
