@@ -19,4 +19,4 @@ _furl() {
         fi
 }
 
-complete -F _furl hdfs
+complete -F _furl furl
