@@ -1,0 +1,20 @@
+#! /bin/bash
+
+_furl() {
+        COMPREPLY=()
+        local cur=${COMP_WORDS[COMP_CWORD]}
+        local cmd=${COMP_WORDS[COMP_CWORD-1]}
+
+        if [ $cmd = "get" ];then
+                local hosts=`cat $HOME/.furl | awk '{print $1}'`
+                COMPREPLY=( $(compgen -W '${hosts[@]}' -- $cur) )
+        elif [[ $cur == "@@"* ]];then
+                compopt -o nospace
+                local hosts=()
+                for h in `cat $HOME/.furl | awk '{print $1}'`
+                do
+                        hosts=(${hosts[@]} "@@$h")
+                done
+                COMPREPLY=( $(compgen -W '${hosts[@]}' -- $cur) )
+        fi
+}
