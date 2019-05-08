@@ -18,3 +18,5 @@ _furl() {
                 COMPREPLY=( $(compgen -W '${hosts[@]}' -- $cur) )
         fi
 }
+
+complete -F _furl hdfs
