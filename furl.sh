@@ -22,7 +22,7 @@ function seturl() {
 		if [ $i -gt $total ];then
 			echo "${src}	${dest}" >> $CONFIG
 		else
-			sed -i '' "${i}s/^.*$/${src}	${dest}/" $CONFIG
+			sed -i "${i}s/^.*$/${src}	${dest}/" $CONFIG
 		fi
 	fi
 }
